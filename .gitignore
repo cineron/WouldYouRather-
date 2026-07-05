@@ -1,1 +1,16 @@
 .DS_Store
+.cursorrules
+
+# dependencies
+/node_modules
+
+# production
+/build
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
