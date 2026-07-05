@@ -18,11 +18,11 @@ let users = {
     answers: {},
     questions: [],
   },
-  // Our custom third user! Giving him a placeholder avatar for now --
+  // Giving him a placeholder avatar for now --
   // avatar-placeholder.iran.liara.run generates a random "cool" cartoon avatar.
-  ronwilson: {
-    id: 'ronwilson',
-    name: 'Ron Wilson',
+  ron: {
+    id: 'ron_id',
+    name: 'Ron',
     avatarURL: 'https://avatar.iran.liara.run/public/45',
     answers: {},
     questions: [],
@@ -82,7 +82,7 @@ createQuestion({
 // Motorcycle / sci-fi theme
 createQuestion({
   id: 'moto01',
-  author: 'ronwilson',
+  author: 'ron_id',
   timestamp: 1614556800000,
   optionOneText: 'Ride a sports touring motorcycle through a heavy storm.',
   optionTwoText: 'Face a Xenomorph alone on an isolated spaceship.',
