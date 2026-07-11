@@ -1,13 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import './index.css'
+import App from './App'
+import reducer from './reducers'
+import middleware from './middleware'
 
-// Note: this is just a bare render for now. We'll wrap this in <Provider>
-// once our Redux store is ready (Phase 1, Step 4).
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// 🏗️ Build the store! reducer knows how to update state, middleware
+// (thunk + logger) gets a say in every action before it lands.
+const store = createStore(reducer, middleware)
+
+// 🎁 <Provider> is the wrapper that hands the store down to every
+// component in the DOM tree: not passed around as a prop.
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
-);
+)
