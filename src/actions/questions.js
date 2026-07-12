@@ -1,3 +1,5 @@
+import { _saveQuestionAnswer } from '../utils/_DATA'
+
 // ❓ Action types for everything question-related.
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
@@ -26,5 +28,17 @@ export function addQuestionAnswer({ authedUser, qid, answer }) {
     authedUser,
     qid,
     answer,
+  }
+}
+
+// 📮 A thunk for casting a vote. The mock "backend" gets the answer first,
+// and only after that resolves does the plain addQuestionAnswer action get
+// dispatched -- which is what actually updates the questions and users
+// slices of the store.
+export function handleAnswerQuestion(info) {
+  return (dispatch) => {
+    return _saveQuestionAnswer(info).then(() => {
+      dispatch(addQuestionAnswer(info))
+    })
   }
 }

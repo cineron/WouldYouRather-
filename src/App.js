@@ -5,6 +5,7 @@ import './App.css'
 import Nav from './components/Nav'
 import Login from './components/Login'
 import Home from './components/Home'
+import QuestionPage from './components/QuestionPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import { handleInitialData } from './actions/shared'
 
@@ -44,6 +45,14 @@ function App() {
           <ProtectedRoute path="/leaderboard">
             <h2>Leaderboard 🏆 coming soon!</h2>
           </ProtectedRoute>
+
+          {/* This one passes a component instead of children, so
+              QuestionPage gets match.params off the URL. 🔗 */}
+          <ProtectedRoute
+            exact
+            path="/questions/:question_id"
+            component={QuestionPage}
+          />
         </Switch>
       </div>
     </Router>
