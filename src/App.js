@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Nav from './components/Nav'
 import Login from './components/Login'
+import Home from './components/Home'
 import ProtectedRoute from './components/ProtectedRoute'
 import { handleInitialData } from './actions/shared'
 
@@ -30,10 +31,10 @@ function App() {
           <Route path="/login" component={Login} />
 
           {/* 🔒 Everything below here needs an authedUser, courtesy of
-              ProtectedRoute. These are just stand-ins for now -- real
-              pages are coming in the next phase! */}
+              ProtectedRoute. The other two are still stand-ins for now --
+              real pages are coming in the next phase! */}
           <ProtectedRoute exact path="/">
-            <h2>Home 🏠 (Unanswered / Answered questions coming soon!)</h2>
+            <Home />
           </ProtectedRoute>
 
           <ProtectedRoute path="/add">
