@@ -20,7 +20,7 @@ let users = {
   },
   // Giving him a placeholder avatar for now --
   // avatar-placeholder.iran.liara.run generates a random "cool" cartoon avatar.
-  ron: {
+  ron_id: {
     id: 'ron_id',
     name: 'Ron',
     avatarURL: 'https://avatar.iran.liara.run/public/45',
