@@ -31,8 +31,8 @@ let users = {
 
 let questions = {}
 
-// Small helper so we don't have to type this everywhere. Nothing fancy,
-// just smashes together two random base-36 strings to get a unique-ish id.
+// Small helper to cut down on typing. 
+// it smashes together two random strings to get a unique id.
 function generateUID() {
   return (
     Math.random().toString(36).substring(2, 15) +
@@ -42,7 +42,7 @@ function generateUID() {
 
 // Quick helper to build a fully-formed question object and hook up all
 // the cross references (author -> question, question -> empty votes, etc).
-// Doing it this way keeps our dummy data below nice and readable.
+// Doing it this way keeps the dummy data below readable.
 function createQuestion({ id, author, timestamp, optionOneText, optionTwoText }) {
   questions[id] = {
     id,
@@ -99,7 +99,7 @@ createQuestion({
 
 // Below are our 4 "endpoints". Each one wraps the in-memory data above in
 // a Promise + setTimeout, just to simulate the network delay of a real
-// API call. This means our action creators need to use .then() (or thunks!)
+// API call. This means the action creators need to use .then() (or thunks!)
 // to actually get at the data -- good practice for real-world APIs later.
 
 export function _getUsers() {
