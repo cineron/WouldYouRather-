@@ -6,6 +6,8 @@ import Nav from './components/Nav'
 import Login from './components/Login'
 import Home from './components/Home'
 import QuestionPage from './components/QuestionPage'
+import NewQuestion from './components/NewQuestion'
+import Leaderboard from './components/Leaderboard'
 import ProtectedRoute from './components/ProtectedRoute'
 import { handleInitialData } from './actions/shared'
 
@@ -32,18 +34,17 @@ function App() {
           <Route path="/login" component={Login} />
 
           {/* 🔒 Everything below here needs an authedUser, courtesy of
-              ProtectedRoute. The other two are still stand-ins for now --
-              real pages are coming in the next phase! */}
+              ProtectedRoute. */}
           <ProtectedRoute exact path="/">
             <Home />
           </ProtectedRoute>
 
           <ProtectedRoute path="/add">
-            <h2>New Question form ✍️ coming soon!</h2>
+            <NewQuestion />
           </ProtectedRoute>
 
           <ProtectedRoute path="/leaderboard">
-            <h2>Leaderboard 🏆 coming soon!</h2>
+            <Leaderboard />
           </ProtectedRoute>
 
           {/* This one passes a component instead of children, so

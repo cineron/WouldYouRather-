@@ -1,4 +1,4 @@
-import { _saveQuestionAnswer } from '../utils/_DATA'
+import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
 
 // ❓ Action types for everything question-related.
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -39,6 +39,26 @@ export function handleAnswerQuestion(info) {
   return (dispatch) => {
     return _saveQuestionAnswer(info).then(() => {
       dispatch(addQuestionAnswer(info))
+    })
+  }
+}
+
+// 🐣 A thunk for creating a brand new poll. getState() grabs authedUser
+// off the store, since a question needs to know who's asking. Once the
+// mock "backend" hands back the fully-formatted question (with its own
+// generated id and timestamp), a single addQuestion dispatch is enough --
+// both the questions reducer and the users reducer already know how to
+// react to ADD_QUESTION.
+export function handleAddQuestion(optionOneText, optionTwoText) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
+
+    return _saveQuestion({
+      author: authedUser,
+      optionOneText,
+      optionTwoText,
+    }).then((question) => {
+      dispatch(addQuestion(question))
     })
   }
 }
