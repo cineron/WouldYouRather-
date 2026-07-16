@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
+import '../App.css'
 
 // A plain form for asking a brand new "would rather" question. Two text
 // inputs, one for each option -- nothing fancier than that needed here. 📝

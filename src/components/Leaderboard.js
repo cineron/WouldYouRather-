@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import '../App.css'
 
 // A ranked list of everybody in the app. 🏆 The score is simply questions
 // asked plus questions answered -- highest score sits at the top.

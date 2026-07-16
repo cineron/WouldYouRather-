@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import QuestionCard from './QuestionCard'
+import '../App.css'
 
 // The dashboard. 🏠 Every question gets sorted into one of two buckets --
 // answered or unanswered -- based on whether authedUser's answers object

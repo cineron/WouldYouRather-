@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import '../App.css'
 
 // A reusable card for a single question. 🎴 Only an id is needed as a prop --
 // the question and its author both come straight from the store.

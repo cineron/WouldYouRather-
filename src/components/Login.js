@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom'
 import { setAuthedUser } from '../actions/authedUser'
+import '../App.css'
 
 // 🎭 This is our "fake" login -- no passwords, just pick who you want to be
 // for the day! Real auth is way out of scope for this project.

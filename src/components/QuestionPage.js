@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
+import '../App.css'
 
 // The full poll page. Both the "cast a vote" form and the "see the
 // results" view live right here, depending on whether authedUser has
@@ -81,7 +82,14 @@ function QuestionPage(props) {
           <p>
             {optionOneVotes} votes ({optionOnePercent}%)
           </p>
-          {/* A little badge marking the actual pick made. ✅ */}
+          {/* A little visual bar to go with that percentage. 📊 */}
+          <div className="vote-bar">
+            <div
+              className="vote-bar-fill"
+              style={{ width: `${optionOnePercent}%` }}
+            />
+          </div>
+          {/* A badge marking the actual pick made. ✅ */}
           {existingAnswer === 'optionOne' && <p>Selected answer</p>}
         </div>
 
@@ -96,6 +104,12 @@ function QuestionPage(props) {
           <p>
             {optionTwoVotes} votes ({optionTwoPercent}%)
           </p>
+          <div className="vote-bar">
+            <div
+              className="vote-bar-fill"
+              style={{ width: `${optionTwoPercent}%` }}
+            />
+          </div>
           {existingAnswer === 'optionTwo' && <p>Selected answer</p>}
         </div>
       </div>
@@ -116,7 +130,15 @@ function QuestionPage(props) {
       </p>
 
       <form onSubmit={handleSubmit}>
-        <label className="question-option">
+        {/* Reusing the "selected" class from the results view above --
+            same visual treatment, just driven by local state instead. 🖱️ */}
+        <label
+          className={
+            selectedOption === 'optionOne'
+              ? 'question-option selected'
+              : 'question-option'
+          }
+        >
           <input
             type="radio"
             name="option"
@@ -127,7 +149,13 @@ function QuestionPage(props) {
           {question.optionOne.text}
         </label>
 
-        <label className="question-option">
+        <label
+          className={
+            selectedOption === 'optionTwo'
+              ? 'question-option selected'
+              : 'question-option'
+          }
+        >
           <input
             type="radio"
             name="option"

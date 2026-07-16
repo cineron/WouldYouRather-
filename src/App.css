@@ -1,5 +1,253 @@
+/* 🎨 One single stylesheet for the whole app -- every component just
+   imports this file directly, so there's no need to hunt for styles
+   scattered across a dozen tiny CSS files. */
+
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    sans-serif;
+  color: #1f2937;
+}
+
+/* ===== Nav bar ===== */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background-color: #1f2937;
+  padding: 16px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.nav a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+/* NavLink adds this class automatically the moment its route matches. 🎯 */
+.nav a.active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* ===== Shared page containers -- keeps everything centered ===== */
+.login,
+.home,
+.new-question,
+.leaderboard,
+.question-page,
+.question-page-404 {
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 20px;
   text-align: center;
-  padding: 40px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* ===== Login ===== */
+.login select,
+.login button {
+  font-size: 16px;
+  padding: 10px 16px;
+  margin: 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.login button {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.login button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ===== Home toggle ===== */
+.home-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.home-toggle button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #2563eb;
+  background-color: #ffffff;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.home-toggle button.active {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.home-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== Cards -- question cards and leaderboard cards share this look ===== */
+.question-card,
+.leaderboard-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+/* Every avatar in the app, capped at a tidy little circle. ⭕ */
+.question-card-avatar,
+.question-page-avatar,
+.leaderboard-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.question-card-author {
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.question-card-snippet {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.question-card-link {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ===== Question details / voting ===== */
+.question-page-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.question-option {
+  display: block;
+  margin: 12px 0;
+  padding: 14px 18px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.question-option:hover {
+  border-color: #93c5fd;
+}
+
+.question-option.selected {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.question-page form button,
+.new-question form button {
+  margin-top: 12px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.question-page form button:disabled,
+.new-question form button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* A little visual bar living behind the vote percentage. 📊 */
+.vote-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e5e7eb;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+
+.vote-bar-fill {
+  height: 100%;
+  background-color: #2563eb;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+/* ===== New question form ===== */
+.new-question form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.new-question label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.new-question input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* ===== Leaderboard ===== */
+.leaderboard-info p {
+  margin: 2px 0;
+}
+
+.leaderboard-name {
+  font-weight: 700;
+  margin: 0 0 4px;
 }

@@ -1,10 +1,19 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+A React/Redux polling app built on top of Udacity's React & Redux course starter code. Users "log in" by picking an existing profile, browse polling questions split into Answered/Unanswered, vote, ask new questions, and check the leaderboard.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+## Getting Started
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+Requires Node 18+ (a `.nvmrc` pinning Node 20 is included -- run `nvm use` if `nvm` is installed).
+
+```
+npm install
+npm start
+```
+
+The app opens at [http://localhost:3000](http://localhost:3000).
+
+The `src/utils/_DATA.js` file represents a fake database and methods that let the app access the data. It's already populated with three sample users and four sample polling questions, so refreshing the page always resets back to this starting data.
 
 ## Data
 
@@ -97,9 +106,4 @@ Your code will talk to the database via 4 methods:
 
 ## Contributing
 
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
-
- # Archival Note 
- This repository is deprecated; therefore, we are going to archive it. However, learners will be able to fork it to their personal Github account but cannot submit PRs to this repository. If you have any issues or suggestions to make, feel free to: 
-- Utilize the https://knowledge.udacity.com/ forum to seek help on content-specific issues. 
-- Submit a support ticket along with the link to your forked repository if (learners are) blocked for other reasons. Here are the links for the [retail consumers](https://udacity.zendesk.com/hc/en-us/requests/new) and [enterprise learners](https://udacityenterprise.zendesk.com/hc/en-us/requests/new?ticket_form_id=360000279131).
+This repository is a personal fork of Udacity's starter code, so it isn't accepting pull requests.

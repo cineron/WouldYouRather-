@@ -7,14 +7,14 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://i.imgur.com/vGqcRcE.jpg',
+    avatarURL: 'https://images.unsplash.com/photo-1701615004837-40d8573b6652?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D',
     answers: {},
     questions: [],
   },
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://i.imgur.com/uknEyv0.jpg',
+    avatarURL: 'https://plus.unsplash.com/premium_photo-1671656349218-5218444643d8?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D',  
     answers: {},
     questions: [],
   },
@@ -23,7 +23,7 @@ let users = {
   ron_id: {
     id: 'ron_id',
     name: 'Ron',
-    avatarURL: 'https://avatar.iran.liara.run/public/45',
+    avatarURL: 'https://plus.unsplash.com/premium_photo-1664536392779-049ba8fde933?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D',
     answers: {},
     questions: [],
   },
@@ -66,8 +66,8 @@ createQuestion({
   id: 'car01',
   author: 'sarahedo',
   timestamp: 1609459200000,
-  optionOneText: 'Commute in a 2000 Mercury Mountaineer V8.',
-  optionTwoText: 'Commute in a 2021 BMW X5 M50i.',
+  optionOneText: 'Commute in a 2000 Mercury Mountaineer V8',
+  optionTwoText: 'Commute in a 2021 BMW X5 M50i',
 })
 
 // Tech / home server theme
@@ -75,8 +75,8 @@ createQuestion({
   id: 'tech01',
   author: 'tylermcginnis',
   timestamp: 1612137600000,
-  optionOneText: 'Design a custom TrueNAS home server in a Jonsbo N4 chassis.',
-  optionTwoText: 'Build a visual Langflow pipeline for LLM automation.',
+  optionOneText: 'Design a custom TrueNAS home server in a Jonsbo N4 chassis',
+  optionTwoText: 'Build a visual Langflow pipeline for LLM automation',
 })
 
 // Motorcycle / sci-fi theme
@@ -84,8 +84,8 @@ createQuestion({
   id: 'moto01',
   author: 'ron_id',
   timestamp: 1614556800000,
-  optionOneText: 'Ride a sports touring motorcycle through a heavy storm.',
-  optionTwoText: 'Face a Xenomorph alone on an isolated spaceship.',
+  optionOneText: 'Ride a sports touring motorcycle through a heavy storm',
+  optionTwoText: 'Face a Xenomorph alone on an isolated spaceship',
 })
 
 // Fitness theme
@@ -93,8 +93,8 @@ createQuestion({
   id: 'fit01',
   author: 'sarahedo',
   timestamp: 1617235200000,
-  optionOneText: 'Do a Norwegian 4x4 HIIT workout.',
-  optionTwoText: 'Do a heavy strength training session.',
+  optionOneText: 'Do a Norwegian 4x4 HIIT workout',
+  optionTwoText: 'Do a heavy strength training session',
 })
 
 // Below are our 4 "endpoints". Each one wraps the in-memory data above in
