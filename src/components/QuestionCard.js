@@ -21,7 +21,7 @@ function QuestionCard({ id }) {
         {/* A teaser snippet only -- the full two-option showdown lives on
             the poll's own details page. 👀 */}
         <p className="question-card-snippet">
-          Would rather... {question.optionOne.text}?
+          Would you rather... {question.optionOne.text}?
         </p>
         <Link to={`/questions/${id}`} className="question-card-link">
           View Poll

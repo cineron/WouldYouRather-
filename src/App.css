@@ -17,12 +17,20 @@
 /* ===== Nav bar ===== */
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 24px;
   background-color: #1f2937;
   padding: 16px 24px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Groups the page links together so space-between can push the user
+   badge over to the right, all in one tidy row. ↔️ */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 .nav a {
@@ -42,6 +50,43 @@
 /* NavLink adds this class automatically the moment its route matches. 🎯 */
 .nav a.active {
   background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* ===== Nav user badge (name + avatar + logout) ===== */
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nav-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-user-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-logout {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background-color: transparent;
+  color: #d1d5db;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-logout:hover {
+  background-color: #ef4444;
+  border-color: #ef4444;
   color: #ffffff;
 }
 
