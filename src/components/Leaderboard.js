@@ -23,26 +23,45 @@ function Leaderboard() {
       }
     })
     .sort((a, b) => b.score - a.score)
-
+  // Each user's score is
+  // questionsAsked + questionsAnswered, and the array gets sorted highest
+  // score first. These classes just get slapped onto the first three cards
+  // in that already-sorted list, by array index:
+  //   index 0 -> leaderboard-card-gold   (highest score, rank #1)
+  //   index 1 -> leaderboard-card-silver (rank #2)
+  //   index 2 -> leaderboard-card-bronze (rank #3)
+  // Everybody past 3rd place keeps the plain white card look.
   return (
     <div className="leaderboard">
       <h2>Leaderboard</h2>
 
-      {rankedUsers.map((user) => (
-        <div key={user.id} className="leaderboard-card">
-          <img
-            className="leaderboard-avatar"
-            src={user.avatarURL}
-            alt={user.name}
-          />
-          <div className="leaderboard-info">
-            <p className="leaderboard-name">{user.name}</p>
-            <p>Score: {user.score}</p>
-            <p>Questions asked: {user.questionsAsked}</p>
-            <p>Questions answered: {user.questionsAnswered}</p>
+      {/* 🏅 Top three spots get a little medal treatment via CSS below. */}
+      {rankedUsers.map((user, index) => {
+        const medalClass =
+          index === 0
+            ? ' leaderboard-card-gold'
+            : index === 1
+            ? ' leaderboard-card-silver'
+            : index === 2
+            ? ' leaderboard-card-bronze'
+            : ''
+
+        return (
+          <div key={user.id} className={'leaderboard-card' + medalClass}>
+            <img
+              className="leaderboard-avatar"
+              src={user.avatarURL}
+              alt={user.name}
+            />
+            <div className="leaderboard-info">
+              <p className="leaderboard-name">{user.name}</p>
+              <p className="leaderboard-score">Score: {user.score}</p>
+              <p>Questions asked: {user.questionsAsked}</p>
+              <p>Questions answered: {user.questionsAnswered}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

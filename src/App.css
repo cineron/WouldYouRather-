@@ -294,5 +294,33 @@
 
 .leaderboard-name {
   font-weight: 700;
+  font-size: 22px;
   margin: 0 0 4px;
+}
+
+/* Tasteful medal colors for the top three -- muted, not neon highlighters.
+   Ranking itself happens in Leaderboard.js, not here!  🏳️ */
+.leaderboard-card-gold {
+  background-color: #f7e6b4; /* 🥇 -- a bit more golden/saturated */
+  border-color: #dcb44e;
+}
+
+.leaderboard-card-silver {
+  background-color: #dfe3e8; /* 🥈 -- a touch more opaque/saturated gray */
+  border-color: #a9b0b9;
+}
+
+.leaderboard-card-bronze {
+  background-color: #f0ddd0; /* 🥉 -- leaning copper/red, kept muted */
+  border-color: #bd7f5e;
+}
+
+.leaderboard-score {
+  display: inline-block;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #2563eb;
+  padding: 2px 10px;
+  border-radius: 10px;
+  margin: 4px 0;
 }
